@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script type="text/javascript" src="jquery-2.0.3.min.js" ></script>
+		<script type="text/javascript" src="dist/lrz.all.bundle.js" ></script>
+		<title>「三翼工作室迷马认证系统」</title>
+		<style>
+		input::-webkit-input-placeholder{
+        	color:rgba(240,240,240,0.9);
+        	letter-spacing: 0.2vw;
+        }
+        input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+            color:rgba(240,240,240,0.9);
+            letter-spacing: 0.2vw;
+        }
+        input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+            color:rgba(240,240,240,0.9);
+            letter-spacing: 0.2vw;
+        }
+        input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+            color:rgba(240,240,240,0.9);
+            letter-spacing: 0.2vw;
+        }
+			*{
+				padding: 0;
+				margin: 0 auto;
+				font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+			}
+			input{
+				outline: 0;
+				border: 0;
+			}
+			html{
+				height: 100%;
+			}
+			body{
+				height: 100%;
+				background-color: #FBF9E2;
+			}
+			button{
+				outline:0;
+				border: 0;
+			}
+			.button{
+				width: 20%;
+				font-size: 4.5vw;
+				font-weight: 300;
+				line-height: 8vw;
+				height: 8vw;
+				color: rgba(255,255,255,0.95);;
+				text-align: center;
+				border-top-left-radius: 22% 50%;
+    			border-top-right-radius: 22% 50%;
+    			border-bottom-left-radius: 22% 50%;
+    			border-bottom-right-radius: 22% 50%;
+				background-color: #F09646;
+				margin-left: 40%;
+				margin-top: 8%;
+			}
+			.id{
+				width: 60%;
+				position: absolute;
+				margin-left: 20%;
+				bottom: 20%;
+				height: 8vw;
+			}
+			#id{
+				padding-left: 20%;
+				width: 80%;
+				font-size: 4.5vw;
+				height: 8vw;
+				background-color: rgba(111,133,154,0.7);
+				border-top-left-radius: 6% 50%;
+    			border-top-right-radius: 6% 50%;
+    			border-bottom-left-radius: 6% 50%;
+    			border-bottom-right-radius: 6% 50%;
+				color:rgba(240,240,240,0.9);
+				box-shadow: 0px 0px 2px #1A3C63; 
+			}
+			.id img{
+				position: absolute;
+				top: 20%;
+				left: 6%;
+				height: 5vw;
+			}
+			.page1{
+				height: 100%;
+				background-image: url(bc.jpg);
+				background-size: 100% 100%;
+				position: relative
+			}
+			.page1_5{
+				width: 100%;
+				height: 70%;
+				background-color: #FBF9E2;
+				position: absolute;
+				bottom: 0;
+				top: 0;
+				margin:auto auto;
+				display: none;
+			}
+			#page2{
+				width: 100%;
+				height: 100%;
+				display: none;
+				position: relative;
+			}
+			.name{
+				width: 58%;
+				position: relative;
+				height: 8vw;
+				margin-top: 6%;
+				text-align: center;
+			}
+			.err{
+				position: absolute;
+				left: 7.5%;
+				bottom: -76%;
+				font-size: 3.5vw;
+				color:red ;
+			}
+			.tl_1{
+				width: 100%;
+				text-align: center;
+				font-size: 10vw;
+				font-weight: 300;
+				color: #F6821D;
+			}
+			.tl_1 span{
+				font-weight: 600;
+			}
+			.tl_2{
+				margin-top: 4%;
+				width: 100%;
+				text-align: center;
+				font-size: 4vw;
+				color: #F7C574;
+				font-weight: 500;
+			}
+			#can{
+				border: 2px solid #0A3444;
+				display: none;
+			}
+			.hint{
+				width: 100%;
+				color: #F6821D;
+				font-size: 8vw;
+				text-align: center;
+				margin-bottom: 25%;
+			}
+			#photo{
+				border: 1px solid;
+				margin-bottom: 25%;
+			}
+			.inputfile {
+            	opacity: 0;
+            	display: none;
+        	}
+        	.button2{
+        		float: left;
+        		margin-left: 15%;
+        		height: 100%;
+        		width: 20%;
+        		background-color: #F67706;
+        		color: rgba(255,255,255,0.95);
+        		border-radius: 5%;
+        		text-align: center;
+        		padding-top: 1%;
+        		padding-bottom: 1%;
+        	}
+        	.submit{
+        		float: left;
+        		width: 20%;
+        		height: 100%;
+        		margin-left: 30%;
+        		border-radius: 5%;
+        		background-color: #F67706;
+        		color: rgba(255,255,255,0.95);
+        		text-align: center;
+        		padding-top: 1%;
+        		padding-bottom: 1%;
+        	}
+        	.btm{
+        		height: 4%;
+        		width: 100%;
+        	}
+        	#screen{
+        		zoom: 0.125;
+        	}
+        	#im{
+        		border: 8px solid #0A3444;
+        	}
+        	.bott{
+        		width: 100%;
+        		position: absolute;
+        		bottom: 2%;
+        	}
+        	#download{
+        		text-decoration: none;
+        		display: block;
+        		width: 36%;
+        		border-radius: 5%;
+        		color: white;
+        		text-align: center;
+        		padding-top: 1%;
+        		padding-bottom: 1%;
+        		background-color: #F6821D;
+        	}
+        	.logo{
+        		width: 100%;
+        		position: absolute;
+        		top: 20%;
+        	}
+        	.logo img{
+        		width: 28%;
+        		margin-left: 36%;
+        	}
+        	#login{
+        		width: 30%;
+        		height: 11vw;
+        		position: absolute;
+        		bottom: 8.5%;
+        		font-size: 4.5vw;
+        		text-align: center;
+        		margin-left: 35%;
+        		background-color: rgba(111,133,154,0.7);
+				border-top-left-radius: 16% 50%;
+    			border-top-right-radius: 16% 50%;
+    			border-bottom-left-radius: 16% 50%;
+    			border-bottom-right-radius: 16% 50%;
+				color:rgba(240,240,240,0.9);
+				box-shadow: 0px 0px 2px #1A3C63; 
+        	}
+        	#err2{
+        		margin-left: 20%;
+        		color: red;
+        		font-size: 4vw;
+        	}
+        	#na{
+        		width: 100%;
+        		text-align: center;
+        		color: red;
+        		position: absolute;
+        		bottom: 4%;
+        		font-size: 4.5vw;
+        	}
+        	.la{
+        		display: none;
+        		background-image: url(迷马.jpg);
+        	}
+		</style>
+	</head>
+	<body id="body">
+	<div class="page1" id="ind">
+		<div class="logo" id="log">
+					<img src="./bg/Logo.png" />
+		</div>
+		<div class="id" id="lo">
+			<input type="text" placeholder="输入你的名字噢~" id="id"/>
+			<img src="hint.png" />
+			<span id="err2"></span>
+		</div>
+		<button id="login">拍&nbsp;&nbsp; 照 </button>
+	</div>
+	<div class="page1_5">
+		<div class="main">
+			<div class="hint">拍摄你的荣誉照片</div>
+			<div id="photo">
+				
+			</div>
+			<div class="btm">
+			<input type="file" name="file" id="file" class="inputfile" accept="image/png, image/jpeg, image/gif, image/jpg"  capture="camera"/>
+			<label for="file" class='button2'>重拍</label>
+			<div class="submit">
+				生成证书
+			</div>
+		</div>
+		</div>
+	</div>
+	<div id="page2">
+		<div id="screen">
+			<img id="im" />
+			<canvas id="can"></canvas>
+		</div>
+		<div class="bott">
+			<div id="download" target="_blank">长按图片保存</div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function(){
+			var can = document.getElementById('can');
+			var im = document.getElementById('im');
+			var id = document.getElementById('id');
+			var na = document.getElementById('na');
+			var nu = document.getElementById('nu');
+			var login=document.getElementById("login");
+			var name = document.getElementById('name');
+			var photo = document.getElementById('photo');
+			var width = document.documentElement.clientWidth || document.body.clientWidth;
+			var height = document.documentElement.clientHeight || document.body.clientHeight;
+			document.getElementById("ind").style.minHeight=height+"px";
+			document.getElementById("ind").style.height=height+"px";
+			document.getElementById("lo").style.bottom=0.2*height+"px";
+			document.getElementById("login").style.bottom=0.085*height+"px";
+			document.getElementById("log").style.top=0.2*height+"px";
+			var screen1 = document.getElementById('screen');
+			var err1 = document.getElementById('err1');
+			var err2 = document.getElementById('err2');
+			var download=document.getElementById('download');
+			var sure=document.getElementById("sure");
+			var flag=0, number=0,flag2=1;
+		 	var username,authflag=0,authflaged;
+			photo.style.height=height*0.28+"px";
+			photo.style.width=height*0.21+"px";
+			can.width =  width*0.9*8;
+			can.height = width*0.9*8*(2132/1570);
+			im.width =  width*0.9*8;
+			im.height = width*0.9*8*(2132/1570);
+			screen1.style.width =  width*0.9*8;+"px";
+			screen1.style.height =  width*0.9*8*(2132/1570);+"px";
+			im.style.marginTop=width*0.05*16*(2132/1570)+'px';
+			im.style.marginLeft=width*0.05*8+'px';
+			var x =Math.random();
+			id.onblur = function () {
+        		if(id.value.length>4&&id.value.length<2){
+        			err2.innerHTML="名字是2-4位诺~"
+        			id.style.border="1px solid red";
+        		}else{
+        			err2.innerHTML="";
+        			id.style.border="0px";
+        		} 
+            }
+			id.onfocus = function () {
+        			err2.innerHTML="";
+        			id.style.border="0px";
+            	}
+		createit("迷马.jpg","#2F2F2F","#2F2F2F");
+		function createit(bac,color1,color2){
+			
+			bac="迷马.jpg";
+			color1="#2F2F2F";
+			color2="#2F2F2F";
+			
+			var ctx = can.getContext("2d");
+			var img1 = new Image();
+			var img2 = new Image();
+			var img3 = new Image();
+			$('#login').click(function(){
+			if(id.value.length>4||id.value.length<2){
+				return;
+			}
+			/*$.ajax({
+   					url:"https://weixin.sky31.com/mima/VoteAdmin/pages/DataVisualization/authentication.php?operate=getInfo",
+   					dataType:'json',
+   					method:"GET",
+   					data:{
+     					id:id.value//获取到的id值
+  				 	},
+  					success:function(datas){
+     					//data就是返回回来的值，当然你变量名也可以不叫data
+     					if(datas.code==0){
+							username=datas.data.name;
+							err2.innerHTML="姓名："+datas.data.name;//更新姓名
+							login.innerHTML="拍&nbsp;&nbsp; 照";
+							id.disabled="disabled";
+							authflag=datas.data.authentication;
+							flag2=datas.code;
+						}
+						else
+						err2.innerHTML="认证失败，重新输入编号";//更新姓名
+  					},
+				});*/
+				username=id.value; 
+				number++;
+				return  $("#file").click();
+			});
+			$('.submit').click(function(){
+				if(flag==0){
+					return;
+				}
+				$('.page1_5').fadeOut(500);
+				$('#page2').delay(500).fadeIn(500);
+				ctx.beginPath();
+				ctx.canvas.style.letterSpacing = "32vw";
+				ctx.font = "700 26vw -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
+				ctx.fillStyle = color2;
+				ctx.fillText(username, width*0.9*8*0.492, width*0.9*8*0.4*1.348);
+				ctx.closePath();
+				img1 = can.toDataURL('image/jpeg');
+				im.src=img1;
+			});
+			document.querySelector('#file').addEventListener('change', function () {
+    	 	// this.files[0] 是用户选择的文件
+    		lrz(this.files[0], {
+    			width: 1024
+    		})
+        		.then(function (rst) {
+            	// 把处理的好的图片给用户看看呗
+            	flag=1;
+            	img3.src = rst.base64;
+            	photo.style.backgroundImage="url("+rst.base64+")";
+            	photo.style.backgroundSize="100% 100%";
+            	if( number==1){
+            		$('.page1').fadeOut(500);
+					$('.page1_5').delay(500).fadeIn(500);
+            	} number++;
+            	draw();
+            	return rst;
+        		});
+			});
+			function draw(){
+        		img3.onload = function(){
+        			img2.src=bac;
+        			img2.onload = function(){  
+        				ctx.beginPath();
+						ctx.drawImage(img2,0,0, width*0.9*8, width*0.9*8*(2132/1570));
+						ctx.closePath();
+						ctx.beginPath();
+        				ctx.drawImage(img3,width*0.9*8*0.3447,width*0.9*8*(2132/1570)*0.4281 , width*0.9*8*0.310, width*0.9*8*(2132/1570)*0.3043 );
+        				ctx.closePath();
+        			}
+        		}
+			}
+			/*$('#download').click(function(){
+				err2.innerHTML="";
+				login.innerHTML="认&nbsp;&nbsp; 证";
+				id.disabled="";
+				id.value="";
+				authflag=0,authflaged=0;
+				$('#page2').fadeOut(0);
+				$('.page1').fadeIn(0);
+				number=0;flag=0;flag2=1;authflag=2;
+				bac="迷马.jpg";
+				color1="#2F2F2F";
+				color2="#2F2F2F";
+			});*/
+		}
+		});
+	</script>
+	<div class="la"></div>
+	</body>
+</html>
